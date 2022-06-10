@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <nav> 
+        <img src="https://media4.giphy.com/media/fOK2EvVjkWvdXQDz5B/100.webp" class="logo">
+        <h2 class="pageHeading">Student Enrollment Form</h2>
+    </nav>
+    <div class="container">
+        <div class="split left">
+            <form id="myform">
+            <table id="input">
+                <tr>
+                    <td><label for="name" class="form-label"> Name </label></td>
+                    <td>
+                        <input type="text" id="name" class="form-control" onfocusout = "validName()" autocomplete="off">
+                        <span id="spanName" class="span"></span>
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td><label for="email" class="form-label"> Email </label></td>
+                    <td>
+                        <input type="email" id="email" class="form-control" onfocusout = "validEmail()" autocomplete="off">
+                        <span id="spanEmail" class="span"></span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><label for="website" class="form-label"> Website </label></td>
+                    <td>
+                        <input type="text" id="website" class="form-control" onfocusout = "validUrl()" autocomplete="off">
+                        <span id="spanWebsite" class="span"></span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><label for="imgLink" class="form-label"> Image Link </label></td>
+                    <td>
+                        <input type="text" id="imgLink" class="form-control" autocomplete="off">
+                    </td>
+                </tr>
+                
+                <tr id="genderOption">
+                    <td><label for="radio" class="form-check-label"> Gender </label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="Male" class="form-check-input">
+                        <label for="male">Male</label>
+                        <br>
+                        <input type="radio" id="female" name="gender" value="Female" class="form-check-input">
+                        <label for="female">Female</label>
+                        <br>
+                        <span id="spanGender" class="span">Required Gender</span>
+                    </td> 
+                </tr>
+
+                <tr>
+                    <td class="pt-2 pb-2"><label for="checkbox" class="form form-check-label">Skills</label></td>
+                    <td class="pt-2 pb-2">
+                            <input id="java" type="checkbox" value="Java" class="form-check-input checkbox">
+                            <label for="java">Java</label>
+                            <input id="html" type="checkbox" value="HTML" class="form-check-input checkbox">
+                            <label for="html">HTML</label>
+                            <input id="css" type="checkbox" value="CSS" class="form-check-input checkbox">
+                            <label for="css">CSS</label>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                        <td colspan="2">
+                            <button type="submit" class="btn btn-primary mt-2 me-2 mb-4"> Enroll Student</button>
+                            <button type="reset" class="btn btn-danger mt-2 ms-2 mb-4">Clear</button>
+                        </td>
+                </tr>
+                
+            </table>
+        </form>
+        </div>
+
+        <div class="split right">
+            <h4 style="text-align: center; font-weight: 600; margin-left: 5vw; margin: 2vh;"> Enrolled Students</h4>
+            <table class="enrolledIds">
+                <thead>
+                    <tr>
+                        <th class="ps-2">
+                            Description
+                        </th>
+                        <th class="ps-1">
+                            Image
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="enrolledTbody">
+                    <tr>
+                        <td>
+                            John Doe
+                            <p> Male 
+                                <br>
+                                john.doe@email.com
+                                <br>
+                                <a href="www.johndoe.com" target="_blank">www.johndoe.com</a>
+                                <br>
+                                Java , HTML
+                            </p>
+                        </td>
+                        <td>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAM1BMVEXr6+urq6u9vb3o6Oi2trbl5eWxsbHBwcHc3NyysrLExMTPz8/h4eG6urrIyMjMzMzW1tYN9M62AAAEzElEQVR4nO2dCbaqMBBEDWESwrD/1X7A5xcQhSQF1fHkrsA6nR7TxNstEolEIpFIJBKJRCKRSCRYdDaiNft3OGL0TZu+LZo0Taqu7ksTpBZT9GWRqgdNUlTtICULT0id54l6595Uox72rztMtiXiRd50ZRC2Mc1XHRNp0Rn279xDH9AxUQi3S3dQx2iXmv1jv5Dlx4UMAa1n/94PZKa20TFQCQxium6szPEgLdm/e0XWpfu/eotc1vHqHYzxRJASXbjLGBATvbLa8VhJs4kuPQ7WSC4kzxtPHUNCkZHlK18dSrVsDSOlvw6lJBwuv5D1h4DDpe8IIQJisIHoUCndJD1GCN8kxjMbPrnTTQISoth1sF0v9YWCLATlI/Rc0sKEkNP79zGWDQ1XCMrXFflswXxdkVMJKLFPJEwhkNr3j5yZE5FCqE4CFcJM7lAhzCkEVAgzbCGjFjW3I/OIqohCQJ0uXwiyROEKgQxRJAjBlfHkQh7XWCnVMYUgEwl1LI+Mv9z5AzBscYXgel3FveO12BHYgdqPIL2d2iEORQrMSajR9wZMieyhKSolpmQd3pe6T5KSapL6DsyIxEG27T7QDjybIKt4xSzkj67+HYR3tpANomLWv1ghxCIFe7SIRQqw9lXUzgqwUfOCWf5C8wjzYhc6aaReWeH6KnL5q4Em4d6044qUnNuz4yZ05FUnnLuzt1FgOZG9/4uKW2QXwc2DyNMgXADmL/+C5kHsaRDqZpd+sm6gpoRvEIy78xd/Rzy9ZIgWuQSDDLS5z3173absZPgfk3koEWKNP9wrFXpKX+Le9JLXS9e4ZxP6fv8K51mdhM955rhOhtgXPG+4Ogm7n3rDtVWUFXxH3DosGbXJAre4xb6U3sJpMiQtZo24eIk4V5+wr4KlfHC8wt5LZBrEoXIUU76vsM3uwgrfF7ZOIq48eWIrRFgF/8JWiFRf/x0hts4uVohtkSJhvLiJbR4RG7Vs212pecS+akxk1louQ+BWXmOVdU7NbiLtePWuQ9NUlBLtsSfUCFKy887kDnLSie+CPPUzsRmZ9+Ub/0p3xPPttodNBEThI++X7kO/tDI1aqumqYnTU9MidwEHLZRIrHvwRvlAntRXe4up8TIm0u7KI1aCv1NY0vTXmCXrsBvYG6TV6WbRJdbBP9L0Z3q+8zuyLuTFSWbRdXGNMV4k+ICsyw75wMNh8hbaDpuWouJBg8otZX16lNoBkVtMd1LisyTxemq+rC4MUnukrt5SCrHFi7yyT/lnVIQIUrt4rK/Me5bkyeEeTPdyZUwcrF5K4TJG7vtWyaCf5J3H3riiJGZwO4qvSpBfsZ3NtwEl8nGm8/m8IgV+MOB0PhVgoen49Ey7/58LXM7m4Tr8l0eC2PzgGvl42WVsmCREg2xecAdpkC2TsLtZR942pZDfc1/KOpdA34m9kvWtXVjFyYz1vzIE0IN8YDmRgD7cey3LL4ICDb4jyzW84OrFF0snCdbX1SoAB5oOJ+ZOgnttkcA8k0Cfzrma+UpOwNF3GbYCjr4/JGQ+Fgo4jSyFhDSXe2MuJOR8uBASyOB6m7mQU1dkzuYnhYRcai2EBDnTevKTQkIufqMQcRS/KCSYq9wtohBpRCHSqH5RSMjToD8h/wDz2VizBRL3XQAAAABJRU5ErkJggg==" alt="studentPhoto">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        Copyright by Nagarro
+    </footer>
+
+    <script src="validations.js"></script>
+</body>
+</html>

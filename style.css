@@ -1,0 +1,301 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial;
+}
+
+nav{
+    background-color: #13294b; 
+    color: #83F9C2;
+    padding: 1vh;
+}
+
+.logo{ 
+    height: 45px;
+    margin: 3px;
+    float: left;
+}
+
+.pageHeading{
+    text-align: center;
+    padding-right: 12vw;
+    color: white; 
+    font-weight: bolder;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Aligining content on page */
+.container{
+    position: relative;
+    height: 77vh;
+    padding-top: 1vh;
+    margin-top: 10vh;
+}
+
+/* Divinding screen in two vertical columns */
+.split{
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.split.left{
+    left: 0;
+    border-right: 2px solid #13294b;
+}
+
+.split.right{
+    right: 0;
+    display: block;
+    border-left: 2px solid #13294b;
+    /* border-left: 2px solid #83F9C2; */
+}
+
+/* Input form alignment */
+#input{
+    margin: auto;
+    padding: 5px;
+}
+
+#input td {
+    padding: 1vh;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Setting borders of input box to green on success */
+.form-control.success{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid lightgreen;
+    appearance: none;
+    border-radius: .375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Setting borders of input box to red on error */
+.form-control.error{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid red;
+    appearance: none;
+    border-radius: .375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Settings for Error message : Tooltip creation */
+.span{
+    width: fit-content;
+    position: absolute;
+    left: 40%;
+    top: 0;
+    padding: 1% 20%;
+    border-radius: 7px;
+    background-color: #FDCACA;
+    color: #ED6160;
+    font-size: small;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.span::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #FDCACA;
+    position: absolute;
+    bottom: -21%;
+    left: 10%;
+}
+
+/* Setting behaviour of Tooltip */
+#name:hover ~ #spanName, #name:focus ~ #spanName{
+    width: fit-content;
+    top: -2%;
+    opacity: 1;
+}
+
+#email:hover ~ #spanEmail, #email:focus ~ #spanEmail{
+    width: fit-content;
+    top: 10%;
+    opacity: 1;
+}
+
+#website:hover ~ #spanWebsite, #website:focus ~ #spanWebsite{
+    width: fit-content;
+    top: 23%;
+    opacity: 1;
+}
+
+#genderOption:hover #spanGender, #genderOption:focus #spanGender{
+    width: fit-content;
+    top: 45%;
+    opacity: 1;
+}
+
+/* Content of Enrollment table */
+p{
+    font-size: small;
+}
+
+/* Passport size image dimensions */
+.enrolledIds img{
+    display: block;    
+    height: 120px;
+    width: 100px;
+}
+
+/* Border given to table */
+.enrolledIds td{
+    border: 1px solid #13294b;
+    padding: 0.5vh;
+    animation: fadeIn 5s both;
+}
+
+/* Animation of fading used while adding content to table */
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 30;
+    }
+    100%{
+        opacity: 90;
+    }
+}
+
+.enrolledIds tr{
+    background-color: azure;
+}
+
+.enrolledIds tr:nth-child(odd){
+    background-color: rgb(203, 243, 243);
+}
+
+.enrolledIds th{
+    color: white;
+    background-color: #13294b;
+    text-align: left;
+    border: 1px solid #13294b;
+    width: 100%;
+}
+
+.enrolledIds{
+    text-align: left;
+    font-weight: bold;
+    display: block;
+    height: 50vh;
+    overflow-y: auto;
+    margin-left: 4vw;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #13294b;
+    color: white;
+    text-align: center;
+    font-size: small;
+    font-weight: 400;
+}
+
+/* Converting two column layout to single column layout */
+@media only screen and (max-width:700px) {
+
+    .pageHeading{
+        text-align: center;
+        padding-right: 0vw;
+        color: white; 
+        font-weight: bolder;
+    }
+    
+    .container{
+        position: relative;
+    }
+    
+    .split{
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5vh;
+    }
+    
+    .split.left{
+        left: 0;
+        border: hidden;
+    }
+    
+    .split.right{
+        right: 0;
+        border: hidden;
+    }
+
+        
+    .enrolledIds img{
+        display: block;    
+        height: 120px;
+        width: 100px;
+    }
+
+    .enrolledIds{
+        display: block;
+        padding: 2vh;
+    }
+
+    #name:hover ~ #spanName, #name:focus ~ #spanName{
+        width: fit-content;
+        top: -6%;
+        opacity: 1;
+    }
+    
+    #email:hover ~ #spanEmail, #email:focus ~ #spanEmail{
+        width: fit-content;
+        top: 7%;
+        opacity: 1;
+    }
+    
+    
+    #website:hover ~ #spanWebsite, #website:focus ~ #spanWebsite{
+        width: fit-content;
+        top: 19%;
+        opacity: 1;
+    }
+    
+    
+    #genderOption:hover #spanGender, #genderOption:focus #spanGender{
+        width: fit-content;
+        top: 45%;
+        opacity: 1;
+    }
+}
